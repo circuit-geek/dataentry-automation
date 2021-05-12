@@ -9,6 +9,7 @@ driver = webdriver.Chrome(executable_path=chrome_driver_path)
 
 driver.get("https://www.amazon.in/")
 
+
 search = driver.find_element_by_id("twotabsearchtextbox")
 search.send_keys("edifice casio watches for men")
 search.send_keys(Keys.ENTER)
@@ -34,7 +35,7 @@ for product_tree in tree.xpath('//div[contains(@data-cel-widget,"search_result_"
     price=product_tree.xpath('.//span[@class="a-price-whole"]/text()')
     at4.append(price)
 
-    stock_details = product_tree.xpath('.//span[@class="a-size-small a-color-price"]/text()')
+    stock_details = product_tree.xpath('.//span[@class="a-color-price"]/text()')
     at5.append(stock_details)
 
 t1=[]
@@ -157,7 +158,7 @@ driver.quit()
 
 
 headings=['BRAND','NAME','No of Reviews','Price','Availability']
-filename = "rental_info1.csv"
+filename = "Product_info1.csv"
 
 # writing to csv file
 with open(filename, 'w',encoding="utf-8") as csvfile:
