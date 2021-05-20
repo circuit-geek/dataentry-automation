@@ -4,9 +4,8 @@ from time import sleep
 import csv
 from selenium.webdriver.common.keys import Keys
 
-chrome_driver_path = "C:\Developement\chromedriver.exe"
-driver = webdriver.Chrome(executable_path=chrome_driver_path)
-
+chrome_driver_path="C:\Development\chromedriver.exe"
+driver= webdriver.Chrome(executable_path=chrome_driver_path)
 driver.get("https://www.amazon.in/")
 
 
@@ -35,7 +34,7 @@ for product_tree in tree.xpath('//div[contains(@data-cel-widget,"search_result_"
     price=product_tree.xpath('.//span[@class="a-price-whole"]/text()')
     at4.append(price)
 
-    stock_details = product_tree.xpath('.//span[@class="a-color-price"]/text()')
+    stock_details = product_tree.xpath('.//span[@class="a-size-small a-color-price"]/text()')
     at5.append(stock_details)
 
 t1=[]
